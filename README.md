@@ -7,3 +7,5 @@ Stacks Used
     Tailwind CSS: For styling the components.
     Vanilla TypeScript with Custom Hooks: Includes routing mechanisms and other utilities.
     No Frameworks: The project is built without any major front-end frameworks like React, Angular, or Vue.
+
+

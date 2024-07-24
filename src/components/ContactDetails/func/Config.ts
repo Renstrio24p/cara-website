@@ -1,0 +1,25 @@
+export const config = {
+  ALLOWED_TAGS: [
+    "iframe",
+    "div",
+    "h2",
+    "h3",
+    "i",
+    "p",
+    "span",
+    "ul",
+    "li",
+    "img",
+  ],
+  ALLOWED_ATTR: [
+    "src",
+    "width",
+    "height",
+    "allowfullscreen",
+    "loading",
+    "referrerpolicy",
+    "class",
+    "id",
+  ],
+  ALLOW_UNSAFE_SCRIPT: false,
+};

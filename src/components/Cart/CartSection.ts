@@ -43,7 +43,9 @@ export default function CartSection(DOM: HTMLElement) {
     })
     .join("");
 
-  const sanitizedHTML = DOMPurify.sanitize(/*html*/ `
+  const ui = useTSElements(
+    DOM,
+    /*html*/ `
     <table class='w-full border-collapse border border-gray-200'>
       <thead>
         <tr class='bg-gray-100'>
@@ -59,9 +61,9 @@ export default function CartSection(DOM: HTMLElement) {
         ${getProductData}
       </tbody>
     </table>
-  `);
-
-  const ui = useTSElements(DOM, sanitizedHTML, config);
+  `,
+    config
+  );
 
   return ui;
 }

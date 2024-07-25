@@ -6,7 +6,7 @@ import About from "../../pages/About/About";
 import Contact from "../../pages/Contact/Contact";
 import Cart from "../../pages/Cart/Cart";
 import NotFound from "../../pages/404/NotFound";
-import { useTSPurifier } from "utils/hooks/useTSPurifier";
+import { useTSPurifier } from "../../utils/hooks/useTSPurifier";
 
 export const Router = (DOM: HTMLElement) => {
   const routes = new TSRouter(

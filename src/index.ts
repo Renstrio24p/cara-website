@@ -1,5 +1,4 @@
 import { useInitialDOM } from "./utils/hooks/useIntialDOM";
-import DOMPurify from "dompurify";
 import "./index.css";
 import "animate.css";
 import "typeface-spartan";
@@ -7,26 +6,19 @@ import "typeface-poppins";
 import "boxicons/css/boxicons.min.css";
 import "remixicon/fonts/remixicon.css";
 import Start from "./Start";
+import {
+  useTSCheckInvalidParams,
+  useTSURLState,
+} from "./utils/hooks/useTSURLState";
 
-// Function to sanitize all query parameters
-const getSanitizedParams = (): Record<string, string> => {
-  const params = new URLSearchParams(window.location.search);
-  const sanitizedParams: Record<string, string> = {};
-
-  for (const [key, value] of params.entries()) {
-    sanitizedParams[key] = DOMPurify.sanitize(value);
-  }
-
-  return sanitizedParams;
-};
-
-const render = () => {
+const render = (): void => {
   if (typeof window !== "undefined") {
+    useTSCheckInvalidParams();
     const DOM = document.getElementById("app");
     if (!DOM) return;
 
-    const sanitizedParams = getSanitizedParams();
-    useInitialDOM("app", () => Start(DOM, sanitizedParams));
+    const sanitizedParams = useTSURLState();
+    return useInitialDOM("app", () => Start(DOM, sanitizedParams));
   }
 };
 
